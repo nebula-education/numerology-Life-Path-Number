@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life Path Number · Nebula Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Questrial&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+#fs-btn{position:fixed;bottom:16px;right:16px;z-index:9999;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.6);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;backdrop-filter:blur(6px);}
+#fs-btn:hover{background:rgba(255,255,255,0.16);color:white;}
+:root{
+  --navy:#0c1118;--navy2:#141d2b;
+  --cream:#f0ebe0;--cream-70:rgba(240,235,224,0.70);--cream-40:rgba(240,235,224,0.40);
+  --cream-18:rgba(240,235,224,0.18);--cream-10:rgba(240,235,224,0.10);--cream-06:rgba(240,235,224,0.06);
+  --purple:#7B6FE8;--purple-light:rgba(123,111,232,0.18);--purple-dim:rgba(123,111,232,0.10);
+  --coral:#E8604C;--cyan:#4FC3F7;--magenta:#E040FB;--green:#6FFFB0;--gold:#FFD54F;
+  --lavender:#b89cf7;
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--cream);font-family:'Questrial',sans-serif;font-size:16px;line-height:1.75;overflow-x:hidden}
+h1,h2,h3{font-family:'Lora',serif;font-weight:600;line-height:1.2}
+h1{font-size:clamp(2.4rem,6vw,4.5rem)}
+h2{font-size:clamp(1.7rem,3.5vw,2.7rem)}
+h3{font-size:clamp(1.1rem,2vw,1.5rem)}
+p{margin-bottom:1rem}p:last-child{margin-bottom:0}
+em{font-style:italic}strong{color:var(--cream)}
+.container{max-width:1080px;margin:0 auto;padding:0 clamp(1.2rem,5vw,3rem)}
+header{position:sticky;top:0;z-index:100;background:rgba(12,17,24,0.90);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--cream-10);padding:15px 0}
+.header-inner{display:flex;align-items:center;gap:10px}
+.logo-wordmark{font-family:'Questrial',sans-serif;font-size:0.95rem;color:var(--cream);letter-spacing:0.03em}
+.logo-sep{width:1px;height:18px;background:var(--cream-40);margin:0 4px}
+.logo-sub{font-size:0.85rem;color:var(--cream-70)}
+.side-nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:9px;z-index:50}
+@media(max-width:900px){.side-nav{display:none}}
+.side-dot{width:7px;height:7px;border-radius:50%;background:var(--cream-40);border:none;cursor:pointer;padding:0;transition:background 0.3s,transform 0.3s}
+.side-dot.on{background:var(--purple);transform:scale(1.55)}
+.section{padding:80px 0;position:relative;overflow:hidden}
+.section-sm{padding:50px 0;position:relative;overflow:hidden}
+.eyebrow{display:block;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--purple);margin-bottom:0.75rem}
+.section-header{margin-bottom:3rem}
+.section-header p{color:var(--cream-70);max-width:640px;font-size:0.97rem;margin-top:0.8rem}
+.blob{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0}
+.section-z{position:relative;z-index:1}
+
+/* ── HERO ── */
+#s0{min-height:88vh;display:flex;align-items:center;padding:90px 0}
+.hero-layout{display:grid;grid-template-columns:1fr auto;align-items:center;gap:3rem;position:relative;z-index:1}
+@media(max-width:700px){.hero-layout{grid-template-columns:1fr}.hero-deco{display:none}}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--purple);background:var(--purple-light);border:1px solid rgba(123,111,232,0.35);border-radius:100px;padding:6px 16px;margin-bottom:1.6rem}
+.hero-tag::before{content:'✦';font-size:0.65rem}
+.hero-title{margin-bottom:1.5rem}
+.hero-lead{font-size:1.08rem;color:var(--cream-70);max-width:480px;line-height:1.7}
+.hero-deco{width:clamp(160px,20vw,240px);aspect-ratio:3/4.5;background:linear-gradient(155deg,#1e2d48 0%,#0d1828 100%);border-radius:22px;border:1px solid var(--cream-10);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+
+/* ── OVERVIEW ── */
+.overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:2.5rem}
+@media(max-width:540px){.overview-grid{grid-template-columns:1fr}}
+.ov-item{display:flex;align-items:center;gap:16px;background:var(--cream-06);border:1px solid var(--cream-10);border-radius:14px;padding:17px 22px;transition:background 0.2s}
+.ov-item:hover{background:var(--cream-10)}
+.ov-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.88rem;font-weight:700;font-family:'Questrial',sans-serif;flex-shrink:0}
+.n1{background:var(--magenta)}.n2{background:var(--purple)}.n3{background:var(--gold);color:#0c1118}
+.n4{background:var(--coral)}.n5{background:var(--cyan);color:#0c1118}.n6{background:var(--green);color:#0c1118}
+.n7{background:var(--lavender);color:#0c1118}.n8{background:var(--cream-40);color:#0c1118}
+.ov-label{font-size:0.95rem;color:var(--cream);flex:1}
+.ov-link{cursor:pointer}.ov-link:hover{background:var(--purple-light);border-color:rgba(123,111,232,0.3)}
+.ov-arrow{font-size:0.85rem;color:var(--purple);opacity:0;transition:opacity 0.2s,transform 0.2s;flex-shrink:0}
+.ov-link:hover .ov-arrow{opacity:1;transform:translateY(2px)}
+
+/* ── DIV BLOCK (section title) ── */
+.div-block{padding:70px 0;background:linear-gradient(110deg,rgba(123,111,232,0.08) 0%,rgba(79,195,247,0.04) 100%);border-top:1px solid var(--cream-10);border-bottom:1px solid var(--cream-10);position:relative;overflow:hidden}
+.div-block h2{position:relative;z-index:1;font-size:clamp(2rem,5vw,3.6rem)}
+
+/* ── CONCEPT BOX ── */
+.concept-box{background:var(--cream-06);border:1px solid var(--cream-10);border-left:3px solid var(--purple);border-radius:14px;padding:24px 28px;margin-top:2rem}
+.concept-box p{font-size:1rem;color:var(--cream-70);line-height:1.75}
+
+/* ── LAYERS GRID ── */
+.layers-grid{display:grid;gap:10px;margin-top:2rem}
+.layer-item{display:flex;align-items:flex-start;gap:16px;background:var(--cream-06);border:1px solid var(--cream-10);border-radius:12px;padding:16px 20px}
+.layer-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;flex-shrink:0;font-family:'Questrial',sans-serif}
+.layer-text{flex:1}
+.layer-title{font-family:'Lora',serif;font-size:0.95rem;color:var(--cream);display:block;margin-bottom:3px}
+.layer-desc{font-size:0.87rem;color:var(--cream-70);line-height:1.55}
+
+/* ── COMPARE GRID ── */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:2rem}
+@media(max-width:600px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{background:var(--cream-06);border:1px solid var(--cream-10);border-radius:14px;padding:20px 22px}
+.compare-card.cyan{border-top:3px solid var(--cyan)}.compare-card.cyan h3{color:var(--cyan)}
+.compare-card.green{border-top:3px solid var(--green)}.compare-card.green h3{color:var(--green)}
+.compare-card.coral{border-top:3px solid var(--coral)}.compare-card.coral h3{color:var(--coral)}
+.compare-card.gold{border-top:3px solid var(--gold)}.compare-card.gold h3{color:var(--gold)}
+.compare-card.magenta{border-top:3px solid var(--magenta)}.compare-card.magenta h3{color:var(--magenta)}
+.compare-card.purple{border-top:3px solid var(--purple)}.compare-card.purple h3{color:var(--purple)}
+.compare-card.lavender{border-top:3px solid var(--lavender)}.compare-card.lavender h3{color:var(--lavender)}
+.compare-card h3{font-family:'Lora',serif;font-size:1.05rem;margin-bottom:8px;color:var(--cream)}
+.compare-card p{font-size:0.92rem;color:var(--cream-70);margin:0;line-height:1.65}
+.compare-card .label{display:block;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--cream-40);margin-bottom:6px}
+
+/* ── MINI CARDS ── */
+.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:2rem}
+@media(max-width:900px){.mini-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.mini-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:380px){.mini-grid{grid-template-columns:1fr}}
+.mini-grid.cols-11{grid-template-columns:repeat(auto-fill,minmax(90px,1fr))}
+.mini-card{background:var(--cream-06);border:1px solid var(--cream-10);border-radius:14px;padding:16px 14px 14px;cursor:pointer;transition:transform 0.22s,box-shadow 0.22s,border-color 0.22s,background 0.22s;user-select:none;position:relative;overflow:hidden}
+.mini-card:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,0.4);border-color:var(--cream-18);background:var(--cream-10)}
+.mini-card.open{border-color:rgba(123,111,232,0.45);background:rgba(123,111,232,0.08)}
+.mini-glyph{font-size:1.6rem;line-height:1;margin-bottom:8px;display:block;opacity:0.9;font-family:'Lora',serif;font-style:italic}
+.mini-name{font-family:'Lora',serif;font-size:0.95rem;color:var(--cream);display:block;margin-bottom:3px;line-height:1.2}
+.mini-sub{display:block;font-size:0.7rem;color:var(--cream-40);letter-spacing:0.05em}
+.mini-info{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--cream-10);font-size:0.82rem;color:var(--cream-70);line-height:1.55}
+.mini-card.open .mini-info{display:block}
+.mini-info .meaning{display:block;color:var(--cream);font-size:0.84rem;margin-bottom:6px;font-weight:600;font-family:'Lora',serif;font-style:italic}
+.mini-hint{font-size:0.66rem;color:var(--cream-40);letter-spacing:0.05em;margin-top:6px;display:block}
+.mini-card.open .mini-hint{color:rgba(240,235,224,0.18)}
+.mini-pos{font-size:0.78rem;color:var(--green);margin-top:5px;display:block;line-height:1.5}
+.mini-neg{font-size:0.78rem;color:rgba(232,96,76,0.85);margin-top:3px;display:block;line-height:1.5;font-style:italic}
+.mini-ret{font-size:0.75rem;color:var(--purple);margin-top:6px;display:block;line-height:1.5;border-top:1px solid var(--cream-10);padding-top:6px}
+.mini-kws{display:flex;flex-wrap:wrap;gap:4px;margin:5px 0 6px}
+.mini-kw{font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;padding:2px 7px;border-radius:100px;background:var(--cream-10);color:var(--cream-70)}
+.mini-card.master{border-color:rgba(123,111,232,0.35)}
+.mini-card.master .mini-glyph{color:var(--lavender)}
+
+/* ── CALC ── */
+.calc-wrap{max-width:480px}
+.date-row{display:flex;gap:10px;margin-bottom:16px}
+.dp{flex:1;display:flex;flex-direction:column;gap:5px}
+.dp label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cream-40)}
+.di{background:var(--cream-06);border:1px solid var(--cream-18);border-radius:10px;padding:13px 16px;color:var(--cream);font-size:1.1rem;text-align:center;outline:none;transition:border-color 0.2s;font-family:'Questrial',monospace;width:100%}
+.di:focus{border-color:rgba(123,111,232,0.6)}
+.di::placeholder{color:var(--cream-40)}
+.calc-btn{width:100%;padding:15px;border-radius:100px;border:1px solid rgba(123,111,232,0.4);cursor:pointer;background:var(--purple-light);color:var(--cream);font-family:'Lora',serif;font-size:1rem;font-weight:600;letter-spacing:0.05em;transition:background 0.2s,transform 0.15s}
+.calc-btn:hover{background:rgba(123,111,232,0.28);transform:translateY(-1px)}
+#cr{display:none;margin-top:28px;animation:fadeUp 0.4s ease}
+.r-steps{background:var(--cream-06);border:1px solid var(--cream-10);border-radius:12px;padding:16px 20px;margin-bottom:20px;font-family:'Questrial',monospace}
+.r-step{font-size:0.85rem;color:var(--cream-70);margin-bottom:4px}
+.r-step .rn{color:var(--lavender);font-weight:600}
+.r-big{text-align:center;font-size:7rem;font-weight:600;font-style:italic;line-height:1;color:var(--cream);font-family:'Lora',serif;margin-bottom:4px}
+.r-lbl{text-align:center;font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--cream-40);margin-bottom:28px}
+.r-card{background:var(--cream-06);border:1px solid var(--cream-18);border-radius:16px;padding:26px 28px;border-left:3px solid var(--purple)}
+.rc-name{font-family:'Lora',serif;font-size:1.5rem;font-style:italic;color:var(--cream);margin-bottom:10px}
+.rc-kws{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.rc-kw{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:100px;background:var(--purple-dim);color:var(--lavender);border:1px solid rgba(123,111,232,0.25)}
+.rc-body{font-size:0.97rem;line-height:1.78;color:var(--cream-70);margin-bottom:16px}
+.rc-sec{margin-bottom:10px}
+.rc-sl{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cream-40);margin-bottom:4px;display:block}
+.rc-st{font-size:0.88rem;color:var(--cream-70);line-height:1.65}
+.rc-ret{font-size:0.88rem;color:var(--purple);font-style:italic;margin-top:16px;padding-top:16px;border-top:1px solid var(--cream-10)}
+
+/* ── QUIZ ── */
+.quiz-block{background:var(--cream-06);border:1px solid var(--cream-10);border-radius:16px;padding:26px 28px;margin-top:2.5rem}
+.quiz-q{font-family:'Lora',serif;font-style:italic;font-size:1.05rem;color:var(--cream);margin-bottom:18px}
+.quiz-opts{display:flex;flex-direction:column;gap:9px}
+.qopt{display:flex;align-items:flex-start;gap:12px;padding:13px 18px;border-radius:10px;background:var(--navy2);border:1px solid var(--cream-10);cursor:pointer;transition:all 0.15s;font-size:0.93rem;color:var(--cream-70)}
+.qopt:hover{border-color:var(--cream-18);color:var(--cream);background:var(--cream-10)}
+.qopt.correct{border-color:rgba(111,255,176,0.5)!important;background:rgba(111,255,176,0.07)!important;color:var(--green)!important}
+.qopt.wrong{border-color:rgba(232,96,76,0.45)!important;background:rgba(232,96,76,0.07)!important;color:var(--coral)!important}
+.qopt.dim{opacity:0.38;cursor:default}
+.q-fb{display:none;margin-top:14px;font-size:0.88rem;color:var(--cream-70);padding:12px 16px;border-radius:10px;background:var(--cream-06);border:1px solid var(--cream-10);line-height:1.65}
+.q-fb.show{display:block;animation:fadeUp 0.25s ease}
+
+/* ── QUOTE ── */
+.quote-block{background:rgba(123,111,232,0.06);border:1px solid rgba(123,111,232,0.22);border-left:3px solid var(--purple);border-radius:14px;padding:28px 32px;margin-top:2rem;text-align:center}
+.quote-text{font-family:'Lora',serif;font-style:italic;font-size:1.15rem;color:var(--cream);line-height:1.7;margin-bottom:1rem}
+.quote-attr{font-size:0.82rem;color:var(--cream-40);letter-spacing:0.08em}
+
+/* ── FORMULA GRID (key points) ── */
+.formula-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:2rem}
+@media(max-width:640px){.formula-grid{grid-template-columns:1fr}}
+.formula-card{background:var(--cream-06);border:1px solid var(--cream-10);border-radius:14px;padding:24px 22px;text-align:center}
+.formula-tag{display:inline-block;font-size:0.66rem;letter-spacing:0.16em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:14px;background:var(--cream-10);color:var(--cream-70)}
+.formula-card.one .formula-tag{background:var(--purple-light);color:var(--lavender)}
+.formula-card.two .formula-tag{background:rgba(79,195,247,0.16);color:var(--cyan)}
+.formula-card.three .formula-tag{background:rgba(255,213,79,0.15);color:var(--gold)}
+.formula-card h3{font-family:'Lora',serif;font-size:1.25rem;margin-bottom:10px;color:var(--cream)}
+.formula-card p{font-size:0.88rem;color:var(--cream-70);line-height:1.6;margin:0}
+
+/* ── WHEN BOX ── */
+.when-box{background:var(--cream-06);border:1px solid var(--cream-10);border-radius:16px;padding:28px 32px;margin-top:2.5rem}
+@media(max-width:540px){.when-box{padding:20px 18px}}
+.when-label{font-family:'Lora',serif;font-size:1rem;color:var(--cyan);margin-bottom:1rem;display:block;font-weight:600}
+.signal-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.signal-list li{display:flex;align-items:flex-start;gap:10px;font-size:0.93rem;color:var(--cream-70)}
+.sq{font-family:'Lora',serif;font-size:1.3rem;color:var(--purple);line-height:1;flex-shrink:0;margin-top:1px}
+.when-close{margin-top:16px;padding-top:16px;border-top:1px solid var(--cream-10);font-size:0.92rem;color:var(--cream-70)}
+
+/* ── INFO BLOCK ── */
+.info-block{background:var(--cream-06);border:1px solid var(--cream-10);border-radius:16px;padding:26px 30px;margin-top:1.5rem}
+.info-block p{font-size:0.95rem;color:var(--cream-70);line-height:1.75}
+
+
+
+/* ── FADE ── */
+footer{border-top:1px solid var(--cream-10);padding:36px 0;text-align:center;color:var(--cream-40);font-size:0.82rem}
+.fade{opacity:0;transform:translateY(22px);transition:opacity 0.62s ease,transform 0.62s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+.fade-d1{transition-delay:0.08s}.fade-d2{transition-delay:0.16s}.fade-d3{transition-delay:0.24s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<nav class="side-nav" id="sideNav" aria-hidden="true">
+  <button class="side-dot on" title="Intro"></button>
+  <button class="side-dot" title="Overview"></button>
+  <button class="side-dot" title="Why it matters"></button>
+  <button class="side-dot" title="The digital root"></button>
+  <button class="side-dot" title="Master numbers"></button>
+  <button class="side-dot" title="How to calculate"></button>
+  <button class="side-dot" title="Calculator"></button>
+  <button class="side-dot" title="Number meanings"></button>
+  <button class="side-dot" title="Return to path"></button>
+  <button class="side-dot" title="Key points"></button>
+</nav>
+
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <span class="logo-wordmark">nebula</span>
+      <span class="logo-sep"></span>
+      <span class="logo-sub">Academy</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="s0" class="section">
+  <div class="blob" style="width:600px;height:500px;background:rgba(123,111,232,0.18);right:-160px;top:-80px;"></div>
+  <div class="blob" style="width:360px;height:360px;background:rgba(184,156,247,0.10);right:200px;bottom:-80px;"></div>
+  <div class="container">
+    <div class="hero-layout">
+      <div class="fade">
+        <div class="hero-tag">Module · Numerology</div>
+        <h1 class="hero-title">Life Path<br>Number</h1>
+        <p class="hero-lead">One number, calculated from your date of birth — and the whole direction of your life. Here's what it means, how to find it, and how to read it.</p>
+      </div>
+      <div class="hero-deco" aria-hidden="true">
+        <svg width="100%" height="100%" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="cg" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(123,111,232,0.55)"/>
+              <stop offset="100%" stop-color="rgba(123,111,232,0)"/>
+            </radialGradient>
+          </defs>
+          <!-- stars -->
+          <circle cx="22" cy="38" r="0.9" fill="rgba(240,235,224,0.5)"/>
+          <circle cx="178" cy="48" r="0.7" fill="rgba(240,235,224,0.4)"/>
+          <circle cx="32" cy="262" r="0.8" fill="rgba(240,235,224,0.45)"/>
+          <circle cx="172" cy="252" r="0.9" fill="rgba(240,235,224,0.5)"/>
+          <circle cx="14" cy="142" r="0.6" fill="rgba(240,235,224,0.3)"/>
+          <circle cx="186" cy="158" r="0.7" fill="rgba(240,235,224,0.35)"/>
+          <!-- corner brackets -->
+          <path d="M10 12 L24 12 M10 12 L10 26" stroke="rgba(240,235,224,0.22)" stroke-width="1" stroke-linecap="round"/>
+          <path d="M190 12 L176 12 M190 12 L190 26" stroke="rgba(240,235,224,0.22)" stroke-width="1" stroke-linecap="round"/>
+          <path d="M10 288 L24 288 M10 288 L10 274" stroke="rgba(240,235,224,0.22)" stroke-width="1" stroke-linecap="round"/>
+          <path d="M190 288 L176 288 M190 288 L190 274" stroke="rgba(240,235,224,0.22)" stroke-width="1" stroke-linecap="round"/>
+          <!-- circles -->
+          <circle cx="100" cy="150" r="85" stroke="rgba(240,235,224,0.08)" stroke-width="0.7"/>
+          <circle cx="100" cy="150" r="60" stroke="rgba(123,111,232,0.15)" stroke-width="0.5"/>
+          <circle cx="100" cy="150" r="35" stroke="rgba(240,235,224,0.06)" stroke-width="0.5"/>
+          <!-- ticks -->
+          <g stroke="rgba(240,235,224,0.18)" stroke-width="0.6" stroke-linecap="round">
+            <line x1="100" y1="65" x2="100" y2="71"/>
+            <line x1="147" y1="78" x2="144" y2="83"/>
+            <line x1="180" y1="111" x2="175" y2="114"/>
+            <line x1="185" y1="150" x2="179" y2="150"/>
+            <line x1="180" y1="189" x2="175" y2="186"/>
+            <line x1="147" y1="222" x2="144" y2="217"/>
+            <line x1="100" y1="235" x2="100" y2="229"/>
+            <line x1="53" y1="222" x2="56" y2="217"/>
+            <line x1="20" y1="189" x2="25" y2="186"/>
+            <line x1="15" y1="150" x2="21" y2="150"/>
+            <line x1="20" y1="111" x2="25" y2="114"/>
+            <line x1="53" y1="78" x2="56" y2="83"/>
+          </g>
+          <!-- numbers at radius 72 -->
+          <g font-family="Lora,serif" font-size="12" font-style="italic" text-anchor="middle" fill="rgba(240,235,224,0.55)">
+            <text x="100" y="72">1</text>
+            <text x="136" y="83">2</text>
+            <text x="163" y="113">3</text>
+            <text x="172" y="154">4</text>
+            <text x="163" y="192">5</text>
+            <text x="136" y="224">6</text>
+            <text x="100" y="236">7</text>
+            <text x="64" y="224">8</text>
+            <text x="37" y="192">9</text>
+          </g>
+          <!-- 11 and 22 brighter -->
+          <g font-family="Lora,serif" font-size="10" font-style="italic" text-anchor="middle" fill="rgba(184,156,247,0.8)">
+            <text x="28" y="154">11</text>
+            <text x="37" y="113">22</text>
+          </g>
+          <!-- center glow -->
+          <circle cx="100" cy="150" r="18" fill="url(#cg)"/>
+          <circle cx="100" cy="150" r="4" fill="rgba(240,235,224,0.45)"/>
+          <circle cx="100" cy="150" r="1.8" fill="rgba(240,235,224,0.9)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ OVERVIEW ═══════════ -->
+<section id="s1" class="section-sm" style="padding-top:0">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">In this module</span>
+      <h2>Module Overview</h2>
+      <p>Numerology is a system built on a single core idea: that numbers carry meaning. Once you understand how to find your number and what it describes, everything else becomes much easier to read.</p>
+    </div>
+    <div class="overview-grid fade fade-d1">
+      <div class="ov-item ov-link" onclick="goToSection('s2')" role="button" tabindex="0">
+        <span class="ov-num n1">1</span>
+        <span class="ov-label">Why this number matters</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+      <div class="ov-item ov-link" onclick="goToSection('s3')" role="button" tabindex="0">
+        <span class="ov-num n2">2</span>
+        <span class="ov-label">The digital root</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+      <div class="ov-item ov-link" onclick="goToSection('s4')" role="button" tabindex="0">
+        <span class="ov-num n3">3</span>
+        <span class="ov-label">Master numbers: 11 &amp; 22</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+      <div class="ov-item ov-link" onclick="goToSection('s5')" role="button" tabindex="0">
+        <span class="ov-num n4">4</span>
+        <span class="ov-label">How to calculate</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+      <div class="ov-item ov-link" onclick="goToSection('s6')" role="button" tabindex="0">
+        <span class="ov-num n5">5</span>
+        <span class="ov-label">Calculate your number</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+      <div class="ov-item ov-link" onclick="goToSection('s7')" role="button" tabindex="0">
+        <span class="ov-num n6">6</span>
+        <span class="ov-label">The meaning of each number</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+      <div class="ov-item ov-link" onclick="goToSection('s8')" role="button" tabindex="0">
+        <span class="ov-num n7">7</span>
+        <span class="ov-label">How to return to your path</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+      <div class="ov-item ov-link" onclick="goToSection('s9')" role="button" tabindex="0">
+        <span class="ov-num n8">8</span>
+        <span class="ov-label">Key points</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ S2 · WHY IT MATTERS ═══════════ -->
+<div id="s2" class="div-block">
+  <div class="blob" style="width:500px;height:400px;background:rgba(184,156,247,0.12);right:-120px;top:-50%;"></div>
+  <div class="container"><h2 class="fade">Why this<br>number matters</h2></div>
+</div>
+
+<section class="section">
+  <div class="blob" style="width:600px;height:500px;background:rgba(123,111,232,0.09);left:50%;top:-80px;transform:translateX(-50%);"></div>
+  <div class="container section-z">
+    <div class="section-header fade">
+      <span class="eyebrow">Section 01 · Foundation</span>
+      <h2>A direction, not a destiny</h2>
+      <p>The Life Path Number shows the general direction of your life — not one event or one choice, but the whole path. The recurring themes, the natural strengths, the lessons that keep showing up.</p>
+    </div>
+    <div class="concept-box fade fade-d1">
+      <p>A lot of people don't understand why the same patterns keep appearing in their life. Why one person always ends up in situations requiring strength and responsibility. Why another keeps learning through relationships. Why a third can't live without freedom and change.</p>
+      <p style="margin-top:1rem">The Life Path Number doesn't give a verdict. It doesn't say: <em>you can only be this way and no other.</em> But it does highlight the main theme that life tends to return to — a language that makes invisible patterns visible.</p>
+    </div>
+
+    <div class="layers-grid fade fade-d2" style="margin-top:2.5rem">
+      <div class="layer-item">
+        <div class="layer-num" style="background:var(--lavender);color:#0c1118">1</div>
+        <div class="layer-text">
+          <span class="layer-title">Recognize your strengths</span>
+          <span class="layer-desc">The natural capacities that flow easily — the ones you often take for granted because they've always been there.</span>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num" style="background:var(--purple)">2</div>
+        <div class="layer-text">
+          <span class="layer-title">Notice recurring lessons</span>
+          <span class="layer-desc">The themes life keeps returning to — not as punishment, but as the particular material your path is made of.</span>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num" style="background:var(--cyan);color:#0c1118">3</div>
+        <div class="layer-text">
+          <span class="layer-title">Find your direction</span>
+          <span class="layer-desc">The path that tends to feel most like <em>you</em> — where resistance decreases and clarity increases.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-block fade fade-d3">
+      <div class="quiz-q">What does the Life Path Number primarily describe?</div>
+      <div class="quiz-opts">
+        <div class="qopt" onclick="chk('q1',this,false)">A specific future event in your life</div>
+        <div class="qopt" onclick="chk('q1',this,true)">The general direction and recurring themes of your path</div>
+        <div class="qopt" onclick="chk('q1',this,false)">Your personality type and social style</div>
+      </div>
+      <div class="q-fb" id="q1-fb"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ S3 · DIGITAL ROOT ═══════════ -->
+<div id="s3" class="div-block">
+  <div class="blob" style="width:560px;height:400px;background:rgba(79,195,247,0.10);right:-100px;top:-40%;"></div>
+  <div class="blob" style="width:400px;height:400px;background:rgba(123,111,232,0.10);left:-80px;bottom:-30%;"></div>
+  <div class="container"><h2 class="fade">The Digital<br>Root</h2></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Section 02 · How it works</span>
+      <h2>Numbers 1 through 9</h2>
+      <p>The foundation of numerology is the numbers 1 to 9. Every more complex number is always reduced to one of these — or to a master number. Think of each as a different theme, a different tone of life.</p>
+    </div>
+    <div class="concept-box fade fade-d1">
+      <p>The main operation in numerology is called the <strong>digital root</strong> — we add all the digits of a number together. If we get a two-digit result, we add again. We keep going until we reach a single number from 1 to 9.</p>
+      <p style="margin-top:1rem">No complex formulas. Just careful addition. And one important exception: master numbers.</p>
+    </div>
+
+    <div class="compare-grid fade fade-d2" style="margin-top:2.5rem">
+      <div class="compare-card cyan">
+        <span class="label">Example A</span>
+        <h3>1 + 2 + 3 = 6</h3>
+        <p>Already a single digit. Done.</p>
+      </div>
+      <div class="compare-card purple">
+        <span class="label">Example B</span>
+        <h3>1 + 2 + 3 + 4 = 10 → 1</h3>
+        <p>Two digits: add again. 1 + 0 = 1.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">How to do it</span>
+      <h2>Three steps</h2>
+    </div>
+    <div class="layers-grid fade fade-d1">
+      <div class="layer-item">
+        <div class="layer-num" style="background:var(--gold);color:#0c1118">1</div>
+        <div class="layer-text">
+          <span class="layer-title">Write out all digits separately</span>
+          <span class="layer-desc">Day, month, and year of your birth date — all digits in sequence.</span>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num" style="background:var(--purple)">2</div>
+        <div class="layer-text">
+          <span class="layer-title">Add them all together</span>
+          <span class="layer-desc">Sum every digit. If you get a two-digit result, add those digits again.</span>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num" style="background:var(--cyan);color:#0c1118">3</div>
+        <div class="layer-text">
+          <span class="layer-title">Stop at 1–9, 11, or 22</span>
+          <span class="layer-desc">Keep reducing until you reach a single digit — unless you hit a master number, in which case you stop.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-block fade fade-d2">
+      <div class="quiz-q">What is 2 + 8 + 1 + 9 + 7 + 5, reduced to a Life Path Number?</div>
+      <div class="quiz-opts">
+        <div class="qopt" onclick="chk('q2',this,false)">32</div>
+        <div class="qopt" onclick="chk('q2',this,false)">5</div>
+        <div class="qopt" onclick="chk('q2',this,true)">4</div>
+        <div class="qopt" onclick="chk('q2',this,false)">13</div>
+      </div>
+      <div class="q-fb" id="q2-fb"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ S4 · MASTER NUMBERS ═══════════ -->
+<div id="s4" class="div-block">
+  <div class="blob" style="width:500px;height:400px;background:rgba(184,156,247,0.12);left:-100px;top:-40%;"></div>
+  <div class="container"><h2 class="fade">Master<br>Numbers</h2></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Section 03 · The exception</span>
+      <h2>11 &amp; 22 — amplified potential</h2>
+      <p>In numerology, certain two-digit numbers are considered special. If your calculation lands on one of these, you stop. You don't reduce further.</p>
+    </div>
+    <div class="concept-box fade fade-d1">
+      <p>A master number doesn't mean a person is automatically special or "better." It means <strong>amplified potential</strong> — more energy, more tension, more inner intensity. Like a stronger charge: it can produce bigger results, but it requires more maturity to handle well.</p>
+      <p style="margin-top:1rem">Master numbers are less of a gift and more of a potential a person still needs to learn how to live with.</p>
+    </div>
+
+    <div class="compare-grid fade fade-d2" style="margin-top:2.5rem">
+      <div class="compare-card lavender">
+        <span class="label">Master Number</span>
+        <h3>11 — Intuition &amp; Sensitivity</h3>
+        <p>Deep feeling, strong intuition, the ability to inspire. Can be overwhelmed by noise and others' emotions. The task: hold the sensitivity as a strength, not a burden.</p>
+      </div>
+      <div class="compare-card purple">
+        <span class="label">Master Number</span>
+        <h3>22 — Vision &amp; Building</h3>
+        <p>Big-picture thinking, the ability to turn grand visions into real structures. Can fear their own scale. The task: translate potential into concrete, step-by-step action.</p>
+      </div>
+    </div>
+
+    <div class="when-box fade fade-d3">
+      <span class="when-label">When to stop — example</span>
+      <ul class="signal-list">
+        <li><span class="sq">·</span><span>2 + 0 + 1 + 8 = <strong>11</strong> — stop here. Master number.</span></li>
+        <li><span class="sq">·</span><span>1 + 9 + 8 + 4 = <strong>22</strong> — stop here. Master number.</span></li>
+        <li><span class="sq">·</span><span>1 + 9 + 9 + 0 = 19 → 1 + 9 = <strong>10</strong> → 1 + 0 = <strong>1</strong> — keep reducing.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ S5 · HOW TO CALCULATE ═══════════ -->
+<div id="s5" class="div-block">
+  <div class="blob" style="width:480px;height:400px;background:rgba(255,213,79,0.09);right:-100px;top:-30%;"></div>
+  <div class="container"><h2 class="fade">How to<br>Calculate</h2></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Section 04 · The calculation</span>
+      <h2>Your full date of birth</h2>
+      <p>Add all the digits of your date of birth — day, month, and year — then reduce using the digital root. Stop at 1–9, 11, or 22.</p>
+    </div>
+
+    <div class="compare-grid fade fade-d1" style="margin-top:0">
+      <div class="compare-card gold">
+        <span class="label">Worked example — 16.09.1987</span>
+        <h3>Step 1 · Sum all digits</h3>
+        <p style="font-family:monospace;font-size:0.9rem;color:var(--cream-70);line-height:1.9">1 + 6 + 0 + 9 + 1 + 9 + 8 + 7 = <strong style="color:var(--gold)">41</strong></p>
+      </div>
+      <div class="compare-card coral">
+        <span class="label">Then reduce</span>
+        <h3>Step 2 · Apply digital root</h3>
+        <p style="font-family:monospace;font-size:0.9rem;color:var(--cream-70);line-height:1.9">4 + 1 = <strong style="color:var(--coral)">5</strong> &nbsp;← Life Path Number</p>
+      </div>
+    </div>
+
+    <div class="info-block fade fade-d2">
+      <p><strong>Before you use the calculator below</strong> — try working out your own Life Path Number by hand first. The mental engagement of doing it yourself is part of how it sticks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ S6 · CALCULATOR ═══════════ -->
+<div id="s6" class="div-block">
+  <div class="blob" style="width:520px;height:420px;background:rgba(123,111,232,0.12);left:50%;top:-40%;transform:translateX(-50%);"></div>
+  <div class="container"><h2 class="fade">Calculate<br>Your Number</h2></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Section 05 · Interactive</span>
+      <h2>Enter your date of birth</h2>
+      <p>See your Life Path Number and its full meaning — keywords, positive expression, challenging side, and the direction back to yourself when things feel off.</p>
+    </div>
+    <div class="calc-wrap fade fade-d1">
+      <div class="date-row">
+        <div class="dp"><label>Day</label><input class="di" id="dd" type="number" min="1" max="31" placeholder="DD"></div>
+        <div class="dp"><label>Month</label><input class="di" id="mm" type="number" min="1" max="12" placeholder="MM"></div>
+        <div class="dp" style="flex:2"><label>Year</label><input class="di" id="yy" type="number" min="1900" max="2025" placeholder="YYYY"></div>
+      </div>
+      <button class="calc-btn" onclick="calcLP()">Calculate my Life Path Number</button>
+      <div id="cr"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ S7 · NUMBER MEANINGS ═══════════ -->
+<div id="s7" class="div-block">
+  <div class="blob" style="width:600px;height:420px;background:rgba(111,255,176,0.07);right:-120px;top:-40%;"></div>
+  <div class="blob" style="width:400px;height:400px;background:rgba(123,111,232,0.10);left:-80px;bottom:-30%;"></div>
+  <div class="container"><h2 class="fade">The Meaning<br>of Each Number</h2></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Section 06 · Numbers 1–9, 11, 22</span>
+      <h2>Eleven different tones of life</h2>
+      <p>Each number describes a distinct theme — a different way of moving through life. Tap any card to read the keywords, positive expression, challenging side, and the reset direction.</p>
+    </div>
+    <div class="mini-grid cols-11 fade fade-d1" id="ngrid"></div>
+    <div class="info-block fade fade-d2" style="margin-top:1.5rem">
+      <p>Notice which descriptions feel like instant recognition — and which feel unfamiliar. Both are information. Numbers you resonate with, and ones you don't, can both reveal something real about where you are right now.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ S8 · RETURN ═══════════ -->
+<div id="s8" class="div-block">
+  <div class="blob" style="width:500px;height:400px;background:rgba(79,195,247,0.09);right:-100px;top:-40%;"></div>
+  <div class="container"><h2 class="fade">How to Return<br>to Your Path</h2></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Section 07 · Application</span>
+      <h2>Every number has a reset</h2>
+      <p>When life feels off — scattered, stuck, or purposeless — each number has a natural direction that tends to bring it back to itself. These aren't quick fixes. They're the movements that work for each particular energy.</p>
+    </div>
+    <div class="mini-grid fade fade-d1" id="retgrid"></div>
+  </div>
+</section>
+
+<!-- ═══════════ S9 · KEY POINTS ═══════════ -->
+<div id="s9" class="div-block">
+  <div class="blob" style="width:540px;height:420px;background:rgba(123,111,232,0.13);left:-100px;top:-40%;"></div>
+  <div class="blob" style="width:380px;height:380px;background:rgba(184,156,247,0.08);right:-80px;bottom:-30%;"></div>
+  <div class="container"><h2 class="fade">Key<br>Points</h2></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Summary · Module wrap-up</span>
+      <h2>What to take with you</h2>
+      <p>The essential ideas from this module — the ones worth returning to as you keep learning.</p>
+    </div>
+
+    <div class="formula-grid fade fade-d1">
+      <div class="formula-card one">
+        <span class="formula-tag">The number</span>
+        <h3>A direction</h3>
+        <p>The Life Path Number shows the general direction and recurring themes of your life — not fixed outcomes or limitations.</p>
+      </div>
+      <div class="formula-card two">
+        <span class="formula-tag">The calculation</span>
+        <h3>Digital root</h3>
+        <p>Add all digits of your full date of birth. Reduce using the digital root until you reach 1–9, 11, or 22.</p>
+      </div>
+      <div class="formula-card three">
+        <span class="formula-tag">The exception</span>
+        <h3>Master numbers</h3>
+        <p>11 and 22 are not reduced further. They carry more intensity — and require more awareness to carry well.</p>
+      </div>
+    </div>
+
+    <div class="compare-grid fade fade-d2" style="margin-top:1.5rem">
+      <div class="compare-card lavender">
+        <span class="label">What each number is</span>
+        <h3>A different theme</h3>
+        <p>1 is about starting. 2 is about connecting. 9 is about meaning. Each number describes a distinct tone of life and way of growing.</p>
+      </div>
+      <div class="compare-card green">
+        <span class="label">What to do with it</span>
+        <h3>A language, not a label</h3>
+        <p>Read your number as an explanation of things you've already lived. Look for recognition — not for a verdict about who you are.</p>
+      </div>
+    </div>
+
+    <div class="quiz-block fade fade-d3">
+      <div class="quiz-q">If your digits sum to 29, what is your Life Path Number?</div>
+      <div class="quiz-opts">
+        <div class="qopt" onclick="chk('q3',this,false)">29</div>
+        <div class="qopt" onclick="chk('q3',this,false)">9</div>
+        <div class="qopt" onclick="chk('q3',this,true)">11</div>
+        <div class="qopt" onclick="chk('q3',this,false)">2</div>
+      </div>
+      <div class="q-fb" id="q3-fb"></div>
+    </div>
+
+    <div class="quote-block fade fade-d3" style="margin-top:2.5rem">
+      <p class="quote-text">"Your birth date is not a verdict. It's a starting point — a language your life has been speaking all along."</p>
+      <span class="quote-attr">— Life Path Number · Nebula Academy</span>
+    </div>
+
+    <div class="info-block fade fade-d3" style="margin-top:1.5rem">
+      <p><strong>Where to go from here.</strong> Once you have your number, the next step is to move from description to recognition — noticing where the theme actually shows up in your life. That's where numerology stops being theory and becomes something you can actually use.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">Nebula Academy · Life Path Number · Foundation of Numerology · Numbers 1–9 · Master Numbers</div>
+</footer>
+
+<button id="fs-btn" title="Fullscreen">⛶</button>
+
+<script>
+/* ── DATA ── */
+const ND={
+  1:{name:"Life Path 1",kw:["independence","leadership","initiative","starting fresh"],
+    body:"Life Path 1 is about independence, initiative, and inner leadership — having the courage to go first, to start something new, to not wait for permission.",
+    pos:"Courage, directness, honesty with oneself, the ability to start from zero.",
+    neg:"Stubbornness, impatience with others' pace, fear of looking weak.",
+    ret:"Start something. Action is what unlocks 1. Standing still is often worse than making a mistake."},
+  2:{name:"Life Path 2",kw:["balance","partnership","sensitivity","harmony"],
+    body:"Life Path 2 is about partnership, sensitivity, and relationships. If 1 learns through 'I', 2 learns through 'we' — reading the room, being a bridge, sensing where balance has shifted.",
+    pos:"Diplomacy, empathy, tact, the ability to build real connection.",
+    neg:"Indecisiveness, dependence on others' opinions, paralysis from over-weighing.",
+    ret:"Restore balance — not through a big leap, but through subtle realignment. Healthy boundaries, honest communication."},
+  3:{name:"Life Path 3",kw:["self-expression","creativity","inspiration","joy"],
+    body:"Life Path 3 is about self-expression — creativity, living energy, joy, and contact with your inner fire. People with this number often bring lightness, humour, and vivid language into any room.",
+    pos:"Inspiration, openness, creative flow, charisma, emotional brightness.",
+    neg:"Superficiality, lack of follow-through, fear of showing yourself as you truly are.",
+    ret:"Return to what brings genuine joy and inspiration. Without it, the path starts to fade."},
+  4:{name:"Life Path 4",kw:["structure","work","foundation","order","discipline"],
+    body:"Life Path 4 is about foundation, order, and building something that lasts. This path is connected with discipline, responsibility, and long-term effort.",
+    pos:"Endurance, stability, reliability, the ability to create real and lasting things.",
+    neg:"Rigidity, fear of chaos, excessive control, valuing work for its own sake.",
+    ret:"Return to order. Clear the clutter. Make a plan. For 4, structure is what brings them back."},
+  5:{name:"Life Path 5",kw:["freedom","movement","change","variety","flexibility"],
+    body:"Life Path 5 is about freedom, change, and experience — learning through the new, through changing environments, through experiment and living contact with what's real.",
+    pos:"Flexibility, curiosity, adaptability, real openness to the new.",
+    neg:"Chaos, lack of focus, running from obligations, hooked on novelty.",
+    ret:"Ask: what is the most important thing for me right now? Choose one thing. Finish it."},
+  6:{name:"Life Path 6",kw:["love","harmony","care","beauty","togetherness"],
+    body:"Life Path 6 is lived through love, care, and harmony — creating spaces where others feel safe and welcome. A warmth distinct from 1's drive or 4's structure.",
+    pos:"Care, warmth, aesthetic sensitivity, the ability to love well.",
+    neg:"Self-sacrifice, control disguised as care, resentment when giving isn't returned.",
+    ret:"Bring warmth back. Reconnect with someone close. Let yourself receive."},
+  7:{name:"Life Path 7",kw:["truth","depth","analysis","intuition"],
+    body:"Life Path 7 is the path of depth and the search for meaning — rarely satisfied with the surface. It wants to understand: what's the meaning, what's underneath, what's hidden.",
+    pos:"Analytical ability, insight, intuition, the ability to see what others miss.",
+    neg:"Isolation, suspicion, coldness, escaping into thoughts instead of life.",
+    ret:"Return to inner depth through silence. Less noise. Writing, solitude, what genuinely interests you deeply."},
+  8:{name:"Life Path 8",kw:["strength","influence","scale","responsibility"],
+    body:"Life Path 8 is about strength, influence, and making things actually work — holding large tasks, managing resources, taking real responsibility. Not just dreaming, but implementing.",
+    pos:"Strength of character, practicality, scale, organizational talent.",
+    neg:"Rigidity, struggle for control, tying personal worth entirely to achievements.",
+    ret:"Believe in your own strength and direct it constructively. Focus on what matters."},
+  9:{name:"Life Path 9",kw:["ideals","service","meaning","vision"],
+    body:"Life Path 9 is the path of ideals, meaning, and giving to something larger than yourself — living with the question: what is all this for?",
+    pos:"Breadth of soul, idealism, empathy for people as a whole, thinking in large meanings.",
+    neg:"Disconnection from reality, wanting to 'save everyone' while struggling to build anything.",
+    ret:"Restore meaning through sincere contribution. The height of the ideal — plus both feet on earth."},
+  11:{name:"Life Path 11",kw:["intuition","sensitivity","vision","inspiration"],master:true,
+    body:"People with Life Path 11 often feel things very deeply — reading atmosphere, mood, and subtext, noticing things others haven't registered. Strong intuition and a fine sense for invisible nuances.",
+    pos:"Strong intuition, gift for inspiring others, ability to create things that are subtle and deeply moving.",
+    neg:"Sensitivity makes noise and overload genuinely exhausting. May absorb others' emotions easily.",
+    ret:"Hold the sensitivity as a source of strength — not a burden. Learn to carry it without drowning."},
+  22:{name:"Life Path 22",kw:["vision","building","scale","structure"],master:true,
+    body:"People with Life Path 22 tend to think at scale — not just one step, but a whole system, a complex structure brought gradually to a real result.",
+    pos:"Thinking at scale, strategic depth, ability to carry serious long-term responsibility.",
+    neg:"Can fear their own scale — postponing serious steps, feeling constant pressure.",
+    ret:"Translate potential into concrete action. Break the big thing into steps. Build what you can see."},
+};
+
+const RET_LABEL={1:'Initiative',2:'Balance',3:'Joy',4:'Order',5:'Focus',
+                 6:'Warmth',7:'Depth &amp; silence',8:'Strength',9:'Meaning',
+                 11:'Inner stillness',22:'Concrete action'};
+
+/* ── SMOOTH SCROLL ── */
+function goToSection(id){
+  const el=document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ── FADE OBSERVER ── */
+const fadeObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');fadeObs.unobserve(e.target);}});
+},{threshold:0.10});
+document.querySelectorAll('.fade').forEach(el=>fadeObs.observe(el));
+
+/* ── SIDE NAV ── */
+const sIds=['s0','s1','s2','s3','s4','s5','s6','s7','s8','s9'];
+const dots=document.querySelectorAll('.side-dot');
+dots.forEach((d,i)=>d.addEventListener('click',()=>goToSection(sIds[i])));
+function syncNav(){
+  const y=window.scrollY+window.innerHeight*0.4;
+  let ai=0;
+  sIds.forEach((id,i)=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)ai=i;});
+  dots.forEach((d,i)=>d.classList.toggle('on',i===ai));
+}
+window.addEventListener('scroll',syncNav,{passive:true});
+syncNav();
+
+/* ── MINI TOGGLE ── */
+function toggleMini(el){
+  el.classList.toggle('open');
+  const h=el.querySelector('.mini-hint');
+  if(h) h.textContent=el.classList.contains('open')?'tap to close':'tap to reveal';
+}
+
+/* ── QUIZ ── */
+function chk(qid,el,correct){
+  const block=document.getElementById(qid)||el.closest('.quiz-block');
+  if(!block) return;
+  if(block.dataset.done) return;
+  block.dataset.done='1';
+  block.querySelectorAll('.qopt').forEach(o=>{o.classList.add('dim');o.onclick=null;});
+  el.classList.remove('dim');
+  const fb=document.getElementById(qid+'-fb');
+  if(correct){
+    el.classList.add('correct');
+    if(fb) fb.textContent='✓ Correct! '+(
+      qid==='q1'?'The Life Path Number describes the overall direction and recurring themes — not specific events.':
+      qid==='q2'?'2+8+1+9+7+5 = 32, then 3+2 = 4.':
+      '2+9 = 11 — a master number. You stop there and don\'t reduce to 2.');
+  }else{
+    el.classList.add('wrong');
+    const texts={q1:'The general direction',q2:'4',q3:'11'};
+    block.querySelectorAll('.qopt').forEach(o=>{
+      if(o.textContent.trim().includes(texts[qid])){o.classList.remove('dim');o.classList.add('correct');}
+    });
+    if(fb) fb.textContent='Not quite — see the highlighted correct answer above.';
+  }
+  if(fb) fb.classList.add('show');
+}
+
+/* ── DIGITAL ROOT ── */
+function dr(n){
+  while(n>9&&n!==11&&n!==22){n=String(n).split('').reduce((a,d)=>a+parseInt(d),0);}
+  return n;
+}
+
+/* ── CALCULATOR ── */
+function calcLP(){
+  const dd=document.getElementById('dd').value.trim();
+  const mm=document.getElementById('mm').value.trim();
+  const yy=document.getElementById('yy').value.trim();
+  if(!dd||!mm||!yy||yy.length<4){alert('Please enter a complete date of birth.');return;}
+  const str=dd.padStart(2,'0')+mm.padStart(2,'0')+yy;
+  const digits=str.split('').map(Number);
+  const sum1=digits.reduce((a,b)=>a+b,0);
+  const lpn=dr(sum1);
+  const nd=ND[lpn]; if(!nd) return;
+  const kwHtml=nd.kw.map(k=>`<span class="rc-kw">${k}</span>`).join('');
+  document.getElementById('cr').innerHTML=`
+    <div class="r-steps">
+      <div class="r-step">${digits.join(' + ')} = <span class="rn">${sum1}</span></div>
+      ${sum1>9&&sum1!==11&&sum1!==22?`<div class="r-step">${String(sum1).split('').join(' + ')} = <span class="rn">${lpn}</span></div>`:''}
+      ${nd.master?'<div class="r-step" style="color:var(--lavender)">Master number — not reduced further ✓</div>':''}
+    </div>
+    <div class="r-big">${lpn}</div>
+    <div class="r-lbl">Your Life Path Number</div>
+    <div class="r-card">
+      <div class="rc-name">${nd.name}</div>
+      <div class="rc-kws">${kwHtml}</div>
+      <div class="rc-body">${nd.body}</div>
+      <div class="rc-sec"><div class="rc-sl">Positive expression</div><div class="rc-st">${nd.pos}</div></div>
+      <div class="rc-sec" style="margin-top:10px"><div class="rc-sl">Challenging side</div><div class="rc-st" style="font-style:italic">${nd.neg}</div></div>
+      <div class="rc-ret">↩ ${nd.ret}</div>
+    </div>`;
+  document.getElementById('cr').style.display='block';
+}
+['dd','mm','yy'].forEach(id=>document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')calcLP();}));
+
+/* ── NUMBER GRID ── */
+function buildGrid(){
+  const g=document.getElementById('ngrid');
+  [1,2,3,4,5,6,7,8,9,11,22].forEach(n=>{
+    const d=ND[n];
+    const card=document.createElement('div');
+    card.className='mini-card'+(d.master?' master':'');
+    card.setAttribute('role','button');card.setAttribute('tabindex','0');
+    card.onclick=()=>toggleMini(card);
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleMini(card);}});
+    const kwHtml=d.kw.slice(0,3).map(k=>`<span class="mini-kw">${k}</span>`).join('');
+    card.innerHTML=`
+      <span class="mini-glyph">${n}</span>
+      <span class="mini-name">${d.name.replace('Life Path ','LP ')}</span>
+      <span class="mini-sub">${d.kw.slice(0,2).join(' · ')}</span>
+      <span class="mini-hint">tap to reveal</span>
+      <div class="mini-info">
+        <span class="meaning">${d.kw[0].charAt(0).toUpperCase()+d.kw[0].slice(1)} · ${d.kw[1]}</span>
+        <div class="mini-kws">${kwHtml}</div>
+        <p style="font-size:0.82rem;color:var(--cream-70);line-height:1.6;margin-bottom:6px">${d.body}</p>
+        <span class="mini-pos">✓ ${d.pos}</span>
+        <span class="mini-neg">~ ${d.neg}</span>
+        <span class="mini-ret">↩ ${d.ret}</span>
+      </div>`;
+    g.appendChild(card);
+  });
+}
+
+/* ── RETURN GRID ── */
+function buildRetGrid(){
+  const g=document.getElementById('retgrid');
+  const colors=[
+    'var(--gold)','var(--purple)','var(--coral)','var(--cyan)','var(--green)',
+    'var(--magenta)','var(--lavender)','var(--gold)','var(--purple)',
+    'var(--lavender)','var(--cyan)'
+  ];
+  [1,2,3,4,5,6,7,8,9,11,22].forEach((n,idx)=>{
+    const d=ND[n];
+    const c=colors[idx];
+    const card=document.createElement('div');
+    card.className='mini-card';
+    card.setAttribute('role','button');card.setAttribute('tabindex','0');
+    card.onclick=()=>toggleMini(card);
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleMini(card);}});
+    card.innerHTML=`
+      <span class="mini-glyph" style="color:${c}">${n}</span>
+      <span class="mini-name">${d.name}</span>
+      <span class="mini-sub">Return through: ${RET_LABEL[n]}</span>
+      <span class="mini-hint">tap to reveal</span>
+      <div class="mini-info">
+        <span class="meaning" style="color:${c}">${RET_LABEL[n]}</span>
+        <p style="font-size:0.84rem;color:var(--cream-70);line-height:1.65;margin:0">${d.ret}</p>
+      </div>`;
+    g.appendChild(card);
+  });
+}
+
+buildGrid();
+buildRetGrid();
+
+/* ── OVERVIEW KEYBOARD ── */
+document.querySelectorAll('.ov-link').forEach(el=>{
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}});
+});
+
+/* ── FULLSCREEN ── */
+document.getElementById('fs-btn').addEventListener('click',()=>{
+  if(!document.fullscreenElement) document.documentElement.requestFullscreen();
+  else if(document.exitFullscreen) document.exitFullscreen();
+});
+</script>
+</body>
+</html>
